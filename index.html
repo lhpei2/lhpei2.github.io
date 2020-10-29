@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+
+<script>
+
+cardClicked=false
+is_mobile=true
+
+function isMobile() {
+	return document.body.clientWidth < 1000
+}
+
+window.addEventListener("DOMContentLoaded", function(){
+	render()
+})
+
+window.addEventListener("resize", function(){
+	render()
+})
+
+function render() {
+  mobile = isMobile()
+  
+  if (mobile != is_mobile) {
+  	is_mobile = mobile
+    display_cards()
+  }
+}
+
+function display_cards() {
+  outer=document.getElementById("outer")
+  if (mobile) {
+  	outer.style.flexDirection='column'
+    for(i=0;i<3;i++) {
+      card_full=document.getElementById("card_"+(i+1))
+      card_compact=document.getElementById("card_compact_"+(i+1))
+
+      card_full.style.display = "none"
+      card_compact.style.display = ""
+    }
+  } else {
+    outer.style.flexDirection='row'
+    for(i=0;i<3;i++) {
+      card_full=document.getElementById("card_"+(i+1))
+      card_compact=document.getElementById("card_compact_"+(i+1))
+
+      card_full.style.display = ""
+      card_compact.style.display = "none"
+    }
+  }
+}
+
+function clicked(card) {
+	if (mobile) {
+      cardClicked=!cardClicked
+      back_button=document.getElementById("back_button")
+      back_button.style.display = ""
+      
+      toggle_cards(card)
+  }
+
+}
+
+function toggle_cards(card) {
+	for(i=0;i<3;i++) {
+      card_full=document.getElementById("card_"+(i+1))
+      card_compact=document.getElementById("card_compact_"+(i+1))
+
+      if (!cardClicked) {
+        card_full.style.display = "none"
+        card_compact.style.display = ""
+      } else if (card!=i) {
+        card_full.style.display = "none"
+        card_compact.style.display = "none"
+      } else {
+        card_full.style.display = ""
+        card_compact.style.display = "none"
+      }
+
+    }
+}
+
+function back() {
+  back_button=document.getElementById("back_button")
+  back_button.style.display = "none"
+  
+  cardClicked=!cardClicked
+  toggle_cards(-1)
+}
+
+</script>
+
+<style> 
+
+.container {
+	width:300px;
+    height: 500px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+.container_compact {
+	width:100%;
+    height: 200px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+.app-name {
+	position: absolute;
+    font-family: 'Fredoka One';
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.outer {
+	background-color: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.link {
+	width:60px;
+    height: 60px;
+}
+
+.app-icon {
+	width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 10px;
+    border-style: solid;
+    border-color: white;
+}
+
+.blob {
+    width: 100px;
+    height: 100px;
+    background-color: none;
+    position: center;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#back_button {
+	display: flex;
+    align-self: start;
+    margin: 0 20px;
+  	font-family: 'Fredoka One';
+    font-size: 25px;
+    color: black;
+}
+
+@keyframes example {
+  0% { transform: scale(0.75); }
+  100% { transform: scale(0.85); }
+}
+
+</style>
+</head>
+<body>
+  <div class="outer" id="outer">
+  	<div id="back_button" onclick="back()" style="display: none;">Back</div>
+    <div class="container" id="card_1" style="display:none; background: rgb(255, 229, 127);">
+      
+      <div class="blob">
+        <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
+        <div class="app-name">Winter Quilt</div>
+      </div>
+    </div>
+    
+    <div class="container_compact" id="card_compact_1" onclick="clicked(0)" style="background: rgb(255, 229, 127);">
+      
+      <div class="blob">
+        <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
+        <div class="app-name">Winter Quilt</div>
+      </div>
+    </div>
+
+
+    <div class="container" id="card_2" style="display:none; background: rgb(255, 136, 209);">
+      <div class="blob">
+        <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
+        <div class="app-name">Fun Shapes</div>
+      </div>
+    </div>
+    
+     <div class="container_compact" id="card_compact_2" onclick="clicked(1)" style="background: rgb(255, 136, 209);">
+      <div class="blob">
+        <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
+        <div class="app-name">Fun Shapes</div>
+      </div>
+    </div>
+    
+    <div class="container_compact" id="card_compact_3" onclick="clicked(2)" style="background: rgb(149, 216, 255);">
+      <div class="blob">
+        <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
+        <div class="app-name">Rosie</div>
+      </div>
+    </div>
+
+    <div class="container" id="card_3" style="display:none; background: rgb(149, 216, 255);">
+      <div class="blob">
+        <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
+        <div class="app-name">Rosie</div>
+      </div>
+      
+      <div>
+      	<img class="app-icon" src="https://i.imgur.com/p3vRYnL.png">
+      </div>
+      
+      <div style="width: 200px; display: flex; flex-direction: row; justify-content: space-between">
+        <a onclick="event.stopPropagation();" href="https://www.youtube.com/watch?v=iWG4BZP4dzM">
+          <img class="link" src="https://cdn.fastly.picmonkey.com/content4/previews/social/social_33_550.png">
+        </a>
+
+        <a onclick="event.stopPropagation();" href="https://github.com/">
+          <img style="border-radius:50%" class="link" src="  https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"> 
+        </a>
+
+        <a>
+          <img style="border-radius:50%" class="link" src="  https://freeiconshop.com/wp-content/uploads/edd/download-flat.png"> 
+        </a>
+     </div>
+    <div>
+  </div>
+</body>
+</html>

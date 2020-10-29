@@ -109,6 +109,7 @@ function back() {
 
 .container_compact {
 	width:100%;
+  max-width: 300px;
     height: 200px;
     border-radius: 50px;
     display: flex;
@@ -129,6 +130,7 @@ function back() {
 }
 
 .outer {
+  width: 1000px;
 	background-color: none;
     display: flex;
     align-items: center;
@@ -184,70 +186,75 @@ function back() {
 </style>
 </head>
 <body>
-  <div class="outer" id="outer">
-  	<div id="back_button" onclick="back()" style="display: none;">Back</div>
-    <div class="container" id="card_1" style="display:none; background: rgb(255, 229, 127);">
-      
-      <div class="blob">
-        <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
-        <div class="app-name">Winter Quilt</div>
+  <div style="width: 100%; background-color: rgb(255, 154, 154); display:flex; justify-content: center">
+    <img style="width: 100%; max-width: 1000px;" src="https://i.imgur.com/jqlVyWc.png"> 
+  </div>
+  <div style="display:flex; justify-content: center">
+    <div class="outer" id="outer">
+      <div id="back_button" onclick="back()" style="display: none;">Back</div>
+      <div class="container" id="card_1" style="display:none; background: rgb(255, 229, 127);">
+
+        <div class="blob">
+          <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
+          <div class="app-name">Winter Quilt</div>
+        </div>
       </div>
-    </div>
-    
-    <div class="container_compact" id="card_compact_1" onclick="clicked(0)" style="background: rgb(255, 229, 127);">
-      
-      <div class="blob">
-        <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
-        <div class="app-name">Winter Quilt</div>
+
+      <div class="container_compact" id="card_compact_1" onclick="clicked(0)" style="background: rgb(255, 229, 127);">
+
+        <div class="blob">
+          <img src="https://media-public.canva.com/MADelaZrM3o/4/screen.svg"> 
+          <div class="app-name">Winter Quilt</div>
+        </div>
       </div>
-    </div>
 
 
-    <div class="container" id="card_2" style="display:none; background: rgb(255, 136, 209);">
-      <div class="blob">
-        <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
-        <div class="app-name">Fun Shapes</div>
+      <div class="container" id="card_2" style="display:none; background: rgb(255, 136, 209);">
+        <div class="blob">
+          <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
+          <div class="app-name">Fun Shapes</div>
+        </div>
       </div>
-    </div>
-    
-     <div class="container_compact" id="card_compact_2" onclick="clicked(1)" style="background: rgb(255, 136, 209);">
-      <div class="blob">
-        <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
-        <div class="app-name">Fun Shapes</div>
-      </div>
-    </div>
-    
-    <div class="container_compact" id="card_compact_3" onclick="clicked(2)" style="background: rgb(149, 216, 255);">
-      <div class="blob">
-        <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
-        <div class="app-name">Rosie</div>
-      </div>
-    </div>
 
-    <div class="container" id="card_3" style="display:none; background: rgb(149, 216, 255);">
-      <div class="blob">
-        <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
-        <div class="app-name">Rosie</div>
+       <div class="container_compact" id="card_compact_2" onclick="clicked(1)" style="background: rgb(255, 136, 209);">
+        <div class="blob">
+          <img src="https://media-public.canva.com/MADelXTmdek/4/screen.svg">
+          <div class="app-name">Fun Shapes</div>
+        </div>
       </div>
-      
+
+      <div class="container_compact" id="card_compact_3" onclick="clicked(2)" style="background: rgb(149, 216, 255);">
+        <div class="blob">
+          <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
+          <div class="app-name">Rosie</div>
+        </div>
+      </div>
+
+      <div class="container" id="card_3" style="display:none; background: rgb(149, 216, 255);">
+        <div class="blob">
+          <img style="width:180px; height:150px;" src="https://i.imgur.com/37tkjgq.png">
+          <div class="app-name">Rosie</div>
+        </div>
+
+        <div>
+          <img class="app-icon" src="https://i.imgur.com/p3vRYnL.png">
+        </div>
+
+        <div style="width: 200px; display: flex; flex-direction: row; justify-content: space-between">
+          <a onclick="event.stopPropagation();" href="https://www.youtube.com/watch?v=iWG4BZP4dzM">
+            <img class="link" src="https://cdn.fastly.picmonkey.com/content4/previews/social/social_33_550.png">
+          </a>
+
+          <a onclick="event.stopPropagation();" href="https://github.com/">
+            <img style="border-radius:50%" class="link" src="  https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"> 
+          </a>
+
+          <a>
+            <img style="border-radius:50%" class="link" src="  https://freeiconshop.com/wp-content/uploads/edd/download-flat.png"> 
+          </a>
+       </div>
       <div>
-      	<img class="app-icon" src="https://i.imgur.com/p3vRYnL.png">
-      </div>
-      
-      <div style="width: 200px; display: flex; flex-direction: row; justify-content: space-between">
-        <a onclick="event.stopPropagation();" href="https://www.youtube.com/watch?v=iWG4BZP4dzM">
-          <img class="link" src="https://cdn.fastly.picmonkey.com/content4/previews/social/social_33_550.png">
-        </a>
-
-        <a onclick="event.stopPropagation();" href="https://github.com/">
-          <img style="border-radius:50%" class="link" src="  https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"> 
-        </a>
-
-        <a>
-          <img style="border-radius:50%" class="link" src="  https://freeiconshop.com/wp-content/uploads/edd/download-flat.png"> 
-        </a>
-     </div>
-    <div>
+    </div>
   </div>
 </body>
 </html>
